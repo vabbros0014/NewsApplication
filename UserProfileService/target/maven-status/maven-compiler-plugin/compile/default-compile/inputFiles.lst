@@ -1,0 +1,13 @@
+/home/user/git/userprofile/src/main/java/com/news/user/profile/controller/UserController.java
+/home/user/git/userprofile/src/main/java/com/news/user/profile/model/UserPojo.java
+/home/user/git/userprofile/src/main/java/com/news/user/profile/exception/UserAlreadyExistException.java
+/home/user/git/userprofile/src/main/java/com/news/user/profile/model/UserRto.java
+/home/user/git/userprofile/src/main/java/com/news/user/profile/dao/UserDao.java
+/home/user/git/userprofile/src/main/java/com/news/user/profile/config/SpringConfig.java
+/home/user/git/userprofile/src/main/java/com/news/user/profile/servcie/Mapper.java
+/home/user/git/userprofile/src/main/java/com/news/user/profile/servcie/AuthServiceProxy.java
+/home/user/git/userprofile/src/main/java/com/news/user/profile/servcie/UserService.java
+/home/user/git/userprofile/src/main/java/com/news/user/profile/model/User.java
+/home/user/git/userprofile/src/main/java/com/news/user/profile/model/AuthResponse.java
+/home/user/git/userprofile/src/main/java/com/news/user/profile/servcie/UserServiceImpl.java
+/home/user/git/userprofile/src/main/java/com/news/user/profile/ProfileApplication.java

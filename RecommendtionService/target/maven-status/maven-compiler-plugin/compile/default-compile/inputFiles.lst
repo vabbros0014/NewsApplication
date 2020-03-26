@@ -1,0 +1,9 @@
+/home/user/Downloads/engine/src/main/java/com/stack/engine/controller/RabbitMQConsumer.java
+/home/user/Downloads/engine/src/main/java/com/stack/engine/controller/RecomendationController.java
+/home/user/Downloads/engine/src/main/java/com/stack/engine/model/NewsArticleDto.java
+/home/user/Downloads/engine/src/main/java/com/stack/engine/EngineApplication.java
+/home/user/Downloads/engine/src/main/java/com/stack/engine/model/NewsArticleRto.java
+/home/user/Downloads/engine/src/main/java/com/stack/engine/service/RecommendationServiceImpl.java
+/home/user/Downloads/engine/src/main/java/com/stack/engine/dao/EngineDao.java
+/home/user/Downloads/engine/src/main/java/com/stack/engine/filter/JwtFilter.java
+/home/user/Downloads/engine/src/main/java/com/stack/engine/service/RecommendationService.java

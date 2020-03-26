@@ -1,0 +1,13 @@
+com/news/user/profile/controller/UserController.class
+com/news/user/profile/model/UserRto.class
+com/news/user/profile/ProfileApplication.class
+com/news/user/profile/dao/UserDao.class
+com/news/user/profile/model/User.class
+com/news/user/profile/model/AuthResponse.class
+com/news/user/profile/servcie/UserService.class
+com/news/user/profile/servcie/Mapper.class
+com/news/user/profile/servcie/UserServiceImpl.class
+com/news/user/profile/exception/UserAlreadyExistException.class
+com/news/user/profile/servcie/AuthServiceProxy.class
+com/news/user/profile/model/UserPojo.class
+com/news/user/profile/config/SpringConfig.class

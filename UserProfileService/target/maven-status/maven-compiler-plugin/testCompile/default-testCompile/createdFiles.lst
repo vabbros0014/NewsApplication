@@ -1,0 +1,4 @@
+com/news/user/profile/controller/UserControllerTest.class
+com/news/user/profile/service/UserServiceTest.class
+com/news/user/profile/repository/UserRepositoryTest.class
+com/news/user/profile/ProfileApplicationTests.class

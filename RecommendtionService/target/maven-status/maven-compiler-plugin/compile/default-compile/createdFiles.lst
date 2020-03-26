@@ -1,0 +1,9 @@
+com/stack/engine/service/RecommendationService.class
+com/stack/engine/dao/EngineDao.class
+com/stack/engine/EngineApplication$1.class
+com/stack/engine/model/NewsArticleRto.class
+com/stack/engine/service/RecommendationServiceImpl.class
+com/stack/engine/controller/RecomendationController.class
+com/stack/engine/EngineApplication.class
+com/stack/engine/filter/JwtFilter.class
+com/stack/engine/model/NewsArticleDto.class

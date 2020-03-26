@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.stackroot.netflixnamingserver.NetflixNamingServerApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.926 s - in com.stackroot.netflixnamingserver.NetflixNamingServerApplicationTests
