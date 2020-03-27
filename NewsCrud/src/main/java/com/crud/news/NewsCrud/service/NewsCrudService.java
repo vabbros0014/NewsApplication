@@ -14,7 +14,5 @@ public interface NewsCrudService {
    public void addBookmarkToUser(NewsArticle article, String userId) throws Exception;
    
    public void addToRecommendationEngine(NewsArticle article);
-   
- //  public NewsUser addUser(NewsUser user) throws Exception;
-	
+ 	
 }

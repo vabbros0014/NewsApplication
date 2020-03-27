@@ -13,7 +13,7 @@ public class RabbitMQConsumer {
 	@Autowired
 	EngineDao dao;
 
-	@RabbitListener(queues = "${javainuse.rabbitmq.queue}")
+	@RabbitListener(queues = "javainuse.queue")
 	public void recievedMessage(NewsArticleRto rto) {
 		System.out.println("Recieved Message From RabbitMQ: " + rto);
 		NewsArticleDto newsArticleDto = dao.findOneByTitle(rto.getTitle());

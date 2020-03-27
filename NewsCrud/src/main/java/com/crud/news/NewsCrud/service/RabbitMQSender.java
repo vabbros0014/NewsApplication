@@ -11,14 +11,8 @@ public class RabbitMQSender {
 @Autowired
 private RabbitTemplate rabbitTemplate;
 
-@Value("${javainuse.rabbitmq.exchange}")
-private String exchange;
-
-@Value("${javainuse.rabbitmq.routingkey}")
-private String routingkey;	
-
 public void send(NewsArticleRto articlerto) {
-	rabbitTemplate.convertAndSend(exchange, routingkey, articlerto);
+	rabbitTemplate.convertAndSend("javainuse.exchange", "javainuse.routingkey", articlerto);
 	System.out.println("Send msg = " + articlerto);
     
 }

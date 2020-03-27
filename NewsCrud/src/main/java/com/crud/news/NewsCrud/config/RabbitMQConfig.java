@@ -18,14 +18,9 @@ import org.springframework.messaging.handler.annotation.support.MessageHandlerMe
 @Configuration
 public class RabbitMQConfig implements RabbitListenerConfigurer  {
 	
-	@Value("${javainuse.rabbitmq.queue}")
-	String queueName;
-
-	@Value("${javainuse.rabbitmq.exchange}")
-	String exchange;
-
-	@Value("${javainuse.rabbitmq.routingkey}")
-	private String routingkey;
+	private String queueName ="javainuse.queue";
+	private String exchange ="javainuse.exchange";
+	private String routingkey ="javainuse.routingkey";
 
 	@Bean
 	Queue queue() {
@@ -58,12 +53,9 @@ public class RabbitMQConfig implements RabbitListenerConfigurer  {
 	        messageHandlerMethodFactory.setMessageConverter(consumerJackson2MessageConverter());
 	        return messageHandlerMethodFactory;
 	    }
-
-	    @Bean
+	 @Bean
 	    public MappingJackson2MessageConverter consumerJackson2MessageConverter() {
 	        return new MappingJackson2MessageConverter();
 	    }
-
-
 
 }

@@ -21,6 +21,8 @@ public class JwtFilter extends OncePerRequestFilter{
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		   final String header = httpServletRequest.getHeader("authorization");
+		   System.out.println("Header is "+header);
+		   System.out.println("Method is "+httpServletRequest.getMethod());
 	        if ("OPTIONS".equals(httpServletRequest.getMethod())) {
 	            httpServletResponse.setStatus(HttpServletResponse.SC_OK);
 	        } else {
