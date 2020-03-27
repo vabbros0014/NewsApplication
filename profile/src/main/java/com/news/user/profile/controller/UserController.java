@@ -31,6 +31,11 @@ public class UserController {
 	RestTemplate restTemplate;
 
 	
+	/**
+	 * @param userRto
+	 * @return Add user to profile DB 
+	 * @throws UserAlreadyExistException
+	 */
 	@RequestMapping(value ="/signup", method =RequestMethod.POST) 
 	public ResponseEntity<?> addUser(@RequestBody UserRto userRto) throws UserAlreadyExistException {
 		ResponseEntity responseEntity = null;
@@ -51,6 +56,11 @@ public class UserController {
 		return responseEntity ;
 	}
 	
+	/**
+	 * @param userRto
+	 * @return Add user to profile DB
+	 * @throws UserAlreadyExistException
+	 */
 	@RequestMapping(value ="/feign-signup", method =RequestMethod.POST) 
 	public ResponseEntity<?> addUserFeign(@RequestBody UserRto userRto) throws UserAlreadyExistException {
 		

@@ -16,6 +16,10 @@ public class RecommendationServiceImpl implements RecommendationService{
 	@Autowired
 	EngineDao dao;
 
+	/**
+	 * @return all articles that are recommended
+	 * by users
+	 */
 	@Override
 	public List<NewsArticleDto> findAllArticles() {
 		List<NewsArticleDto> list = dao.findAll();

@@ -8,12 +8,11 @@ import com.crud.news.NewsCrud.Entity.NewsArticleRto;
 
 @Service
 public class RabbitMQSender {
-@Autowired
-private RabbitTemplate rabbitTemplate;
+	@Autowired
+	private RabbitTemplate rabbitTemplate;
 
-public void send(NewsArticleRto articlerto) {
-	rabbitTemplate.convertAndSend("javainuse.exchange", "javainuse.routingkey", articlerto);
-	System.out.println("Send msg = " + articlerto);
-    
-}
+	public void send(NewsArticleRto articlerto) {
+		rabbitTemplate.convertAndSend("javainuse.exchange", "javainuse.routingkey", articlerto);
+
+	}
 }

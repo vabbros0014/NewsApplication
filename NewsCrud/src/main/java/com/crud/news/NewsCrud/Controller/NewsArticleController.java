@@ -14,6 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.crud.news.NewsCrud.Entity.NewsArticle;
 import com.crud.news.NewsCrud.service.NewsCrudService;
 
+/**
+ * @author user
+ *
+ */
 @RestController
 @RequestMapping("/api")
 @CrossOrigin("*")
@@ -30,24 +34,32 @@ public class NewsArticleController {
 	public NewsArticleController (NewsCrudService theNewsCrudService) {
 		newsCrudService = theNewsCrudService;
 	} 
-	@GetMapping("/hello") 
-	public void HelloWorld() {
-		System.out.println("coming to Hello World");
-	}
-	
-	
+	/**
+	 * @return List of all News Article saved in DB
+	 */
 	@GetMapping("/bookmarks")
 	public List<NewsArticle> findAllArticlesBookmarked() {
 		System.out.println("coming to find All Resource");
 		return	newsCrudService.findAllHeadlines();
 	}
 	
+	
+	/**
+	 * @param username
+	 * @return bookmarked list of user
+ 	 */
 	@GetMapping("/bookmarks/user/{username}")
 	public List<NewsArticle> findAllArticlesBookmarkedByUser(@PathVariable String username) {
 		System.out.println("coming to find All Bookmark By Username");
 		return	newsCrudService.findAllByUserName(username);
 	}
 	
+	/**
+	 * Add bookmark to the user profile
+	 * @param article
+	 * @param userName
+	 * @throws Exception
+	 */
 	@PostMapping("/bookmarks/user/{userName}")
 	public void addBookmark(@RequestBody NewsArticle article, @PathVariable String userName) throws Exception {
 		System.out.println("coming to Add Bookmark");

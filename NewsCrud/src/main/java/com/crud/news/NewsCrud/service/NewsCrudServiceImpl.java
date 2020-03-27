@@ -13,7 +13,6 @@ import com.crud.news.NewsCrud.Dao.NewsArticleDao;
 import com.crud.news.NewsCrud.Entity.NewsArticle;
 import com.crud.news.NewsCrud.Entity.NewsArticleRto;
 
-
 @Service
 public class NewsCrudServiceImpl implements NewsCrudService {
 
@@ -33,16 +32,27 @@ public class NewsCrudServiceImpl implements NewsCrudService {
 	
 	public NewsCrudServiceImpl() {}
 	
+	
+	/**
+	 *@return all articles save in db
+	 */
 	@Override
 	public List<NewsArticle> findAllHeadlines() {
 		return articleDao.findAll();
 	}
 	
+	/**
+	 *@return all articles bookmarked by user
+	 */
 	@Override
 	public List<NewsArticle> findAllByUserName(String username) {
 		return articleDao.findAllByUsername(username);
 	}
 
+	
+	/**
+	 *Add bookamark to user profile
+	 */
 	@Override
 	public void addBookmarkToUser(NewsArticle article, String userName) throws Exception {
 		Boolean articleExists = false;
@@ -67,6 +77,9 @@ public class NewsCrudServiceImpl implements NewsCrudService {
 		}
 	}
 
+	/**
+	 * Add news Article to Recommendation Engine
+	 */
 	@Override
 	public void addToRecommendationEngine(NewsArticle article) {
 		NewsArticleRto rto =convertToRto(article);
@@ -75,6 +88,11 @@ public class NewsCrudServiceImpl implements NewsCrudService {
 			
 	}
 
+	/**
+	 * Mapper to convert to Rto
+	 * @param article
+	 * @return
+	 */
 	private NewsArticleRto convertToRto(NewsArticle article) {
 		NewsArticleRto rto = new NewsArticleRto();
 		rto.setAuthor(article.getAuthor());
@@ -86,16 +104,5 @@ public class NewsCrudServiceImpl implements NewsCrudService {
 		return rto;
 	}
 
-	/*
-	 * @Override public NewsUser addUser(NewsUser user) throws Exception {
-	 * System.out.println(user.getEmailId()); NewsUser newsUser =
-	 * userDao.findOneByEmailId(user.getEmailId()); System.out.println(newsUser);
-	 * if(newsUser == null) { user = userDao.save(user); } else {
-	 * System.out.println("User exists"); throw new
-	 * UserException("User Already Exists"); }
-	 * 
-	 * return user;
-	 * 
-	 * }
-	 */
+	
 }

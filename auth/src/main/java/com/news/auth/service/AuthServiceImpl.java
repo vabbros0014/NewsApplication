@@ -32,8 +32,11 @@ public class AuthServiceImpl implements AuthService {
 		
 	}
 	
+	/**
+	 * Get user by username
+	 */
 	@Override
-	public UserDetails getUserByUserId(String username, String password) throws AuthenticationExceptionHandler.UserNotFoundException,
+	public UserDetails getUserByUserName(String username, String password) throws AuthenticationExceptionHandler.UserNotFoundException,
 	AuthenticationExceptionHandler.UserPasswordMisMatchException{
 		UserDetails userDetails = null;
 		User user = userDao.findOneByUsername(username);
@@ -51,11 +54,17 @@ public class AuthServiceImpl implements AuthService {
 		return userDetails;
 	}
 
+	/**
+	 * Validate user 
+	 */
 	@Override
 	public Boolean validatePassword(CharSequence rawPassword, String storedPassword) {
 		 return (passwordEncoder.matches(rawPassword, storedPassword));
 	}
 
+	/**
+	 *save user to userdb
+	 */
 	@Override
 	public void saveUser(User user) {
 		user.setPassword(passwordEncoder.encode(user.getPassword()));

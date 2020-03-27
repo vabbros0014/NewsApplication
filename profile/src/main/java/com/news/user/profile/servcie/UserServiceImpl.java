@@ -21,6 +21,9 @@ public class UserServiceImpl implements UserService{
 	@Autowired
 	RestTemplate restTemplate;
 
+	/**
+	 * Add user to DB
+	 */
 	@Override
 	public User addUser(User user) throws UserAlreadyExistException{
 	
@@ -33,6 +36,9 @@ public class UserServiceImpl implements UserService{
 		return user;
 	}
 
+	/**
+	 * Add user to auth service
+	 */
 	@Override
 	public AuthResponse addUserToAuth(UserPojo pojo) {
 		// TODO Auto-generated method stub

@@ -11,7 +11,7 @@ public interface AuthService {
 	
 	void registerUser(AuthenticateRequest authenticateRequest);
 	
-	UserDetails getUserByUserId(String username, String password) 
+	UserDetails getUserByUserName(String username, String password) 
 			throws AuthenticationExceptionHandler.UserNotFoundException,
 			AuthenticationExceptionHandler.UserPasswordMisMatchException;
 	

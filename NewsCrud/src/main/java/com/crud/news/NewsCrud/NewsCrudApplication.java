@@ -17,30 +17,29 @@ public class NewsCrudApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(NewsCrudApplication.class, args);
 	}
-	
+
 	@Bean
-    public FilterRegistrationBean jwtFilter() {
-        System.out.println("Filter is active");
-        final FilterRegistrationBean registrationBean = new FilterRegistrationBean();
-        registrationBean.setFilter(new JwtFilter());
-        registrationBean.addUrlPatterns("/api/*");
-        return registrationBean;
-    }
-	
+	public FilterRegistrationBean jwtFilter() {
+		System.out.println("Filter is active");
+		final FilterRegistrationBean registrationBean = new FilterRegistrationBean();
+		registrationBean.setFilter(new JwtFilter());
+		registrationBean.addUrlPatterns("/api/*");
+		return registrationBean;
+	}
+
 	@Bean
 	public RestTemplate restTemplate(RestTemplateBuilder builder) {
 		return builder.build();
 	}
 
-	 @Bean
-	    public WebMvcConfigurer corsConfigurer() {
-	        return new WebMvcConfigurer() {
-	            @Override
-	            public void addCorsMappings(CorsRegistry registry) {
-	                registry.addMapping("/**");
-	            }
-	        };
-	    }
-
+	@Bean
+	public WebMvcConfigurer corsConfigurer() {
+		return new WebMvcConfigurer() {
+			@Override
+			public void addCorsMappings(CorsRegistry registry) {
+				registry.addMapping("/**");
+			}
+		};
+	}
 
 }

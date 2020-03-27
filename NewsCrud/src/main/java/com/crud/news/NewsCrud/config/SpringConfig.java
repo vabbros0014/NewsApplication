@@ -11,6 +11,9 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration
 @EnableSwagger2
 public class SpringConfig {                                    
+    /**
+     * Added Bean for swagger
+     */
     @Bean
     public Docket productApi() {
         return new Docket(DocumentationType.SWAGGER_2)
@@ -18,6 +21,4 @@ public class SpringConfig {
                 .apis(RequestHandlerSelectors.basePackage("com.crud.news.NewsCrud"))
                 .build();
     }
-
-	
 }

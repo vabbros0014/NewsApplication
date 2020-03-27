@@ -35,12 +35,12 @@ public class AuthenticationController {
 	
 	@Autowired
 	UserDao userDao;
+
 	
-	@RequestMapping("/hello")
-	public ResponseEntity<String> helloWorld(){
-		return ResponseEntity.ok(new String("hello World"));
-	}
-	
+	/**
+	 * @param request
+	 * @return Register new user 
+	 */
 	@RequestMapping(value="/register", method=RequestMethod.POST)
 	public ResponseEntity<User> registerNewUser(@RequestBody AuthenticateRequest request) {
 		User user = new User(request.getUsername(), request.getPassword());
@@ -48,10 +48,16 @@ public class AuthenticationController {
 		return ResponseEntity.ok(user);
 	}
 	
+	/**
+	 * 
+	 * @param authenticateRequest
+	 * @return Auth token 
+	 * @throws Exception
+	 */
 	@RequestMapping(value = "/authenticate", method=RequestMethod.POST)
 	public ResponseEntity<AuthenticateResponse> createAuthentication(@RequestBody AuthenticateRequest authenticateRequest) 
 			throws Exception{
-		UserDetails userDetails = authService.getUserByUserId(authenticateRequest.getUsername(), authenticateRequest.getPassword());
+		UserDetails userDetails = authService.getUserByUserName(authenticateRequest.getUsername(), authenticateRequest.getPassword());
 		
 				String jwt = jwtUtil.generateToken(userDetails);
 				return ResponseEntity.ok(new AuthenticateResponse(jwt));

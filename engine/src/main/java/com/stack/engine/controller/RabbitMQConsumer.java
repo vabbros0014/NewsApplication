@@ -13,9 +13,12 @@ public class RabbitMQConsumer {
 	@Autowired
 	EngineDao dao;
 
+	/**
+	 * listner add article to db and set recommendation
+	 * @param rto
+	 */
 	@RabbitListener(queues = "javainuse.queue")
 	public void recievedMessage(NewsArticleRto rto) {
-		System.out.println("Recieved Message From RabbitMQ: " + rto);
 		NewsArticleDto newsArticleDto = dao.findOneByTitle(rto.getTitle());
 		if(newsArticleDto == null) {
 			newsArticleDto = convertToDto(rto);
@@ -28,6 +31,11 @@ public class RabbitMQConsumer {
 
 
 
+	/**
+	 * Mapper to convert rto to dto
+	 * @param rto
+	 * @return Dto
+	 */
 	private NewsArticleDto convertToDto(NewsArticleRto rto) {
 		NewsArticleDto dto = new NewsArticleDto();
 		dto.setAuthor(rto.getAuthor());
