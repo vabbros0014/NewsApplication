@@ -15,9 +15,7 @@ public class Mapper {
 		user.setGender(userRto.getGender());
 		user.setCity(userRto.getCity());
 		return user;
-		
+
 	}
-	
-	
 
 }

@@ -11,7 +11,7 @@ public interface NewsCrudService {
 	
    public List<NewsArticle> findAllByUserName(String userName);
 
-   public void addBookmarkToUser(NewsArticle article, String userId) throws Exception;
+   public NewsArticle addBookmarkToUser(NewsArticle article, String userId) throws Exception;
    
    public void addToRecommendationEngine(NewsArticle article);
  	

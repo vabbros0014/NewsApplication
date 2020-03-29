@@ -10,6 +10,20 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document
 public class NewsArticle {
 	
+	public NewsArticle() {}
+	public NewsArticle(String id, String author, String title, String description, String url, String urlToImage,
+			Date publishedAt, String username) {
+		super();
+		this.id = id;
+		this.author = author;
+		this.title = title;
+		this.description = description;
+		this.url = url;
+		this.urlToImage = urlToImage;
+		this.publishedAt = publishedAt;
+		this.username = username;
+	}
+
 	@Id
 	private String id;
 	private String author;

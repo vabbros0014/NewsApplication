@@ -4,7 +4,7 @@ public class UserAlreadyExistException extends Exception {
 
 
     /**
-	 * 
+	 * Add User Already Exist Exception
 	 */
 	private static final long serialVersionUID = 1L;
 	String messge;

@@ -53,11 +53,13 @@ public class NewsCrudServiceImpl implements NewsCrudService {
 	/**
 	 *Add bookamark to user profile
 	 */
+	
+	
 	@Override
-	public void addBookmarkToUser(NewsArticle article, String userName) throws Exception {
+	public NewsArticle addBookmarkToUser(NewsArticle article, String userName) throws Exception {
 		Boolean articleExists = false;
 		List<NewsArticle> articleList = articleDao.findAllByUsername(userName);
-		
+		NewsArticle articleDto = null;
 		if (!CollectionUtils.isEmpty(articleList)) {
 			for (NewsArticle newsArticle : articleList) {
 				if (newsArticle.getTitle().equalsIgnoreCase(article.getTitle())) {
@@ -68,13 +70,14 @@ public class NewsCrudServiceImpl implements NewsCrudService {
 		if (!articleExists) {
 			logger.info("article not exist and going to add in engine");
 			article.setUsername(userName);
-			addToRecommendationEngine(article);
+			//addToRecommendationEngine(article);
 			try {
-				articleDao.save(article);
+				articleDto = articleDao.save(article);
 			} catch (Exception e) {
 				logger.debug(e.getMessage());
 			}
 		}
+		return articleDto;
 	}
 
 	/**

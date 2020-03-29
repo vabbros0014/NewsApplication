@@ -6,7 +6,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -36,20 +35,21 @@ public class AuthServiceImpl implements AuthService {
 	 * Get user by username
 	 */
 	@Override
-	public UserDetails getUserByUserName(String username, String password) throws AuthenticationExceptionHandler.UserNotFoundException,
-	AuthenticationExceptionHandler.UserPasswordMisMatchException{
+	public UserDetails getUserByUserName(String username, String password)
+			throws AuthenticationExceptionHandler.UserNotFoundException,
+			AuthenticationExceptionHandler.UserPasswordMisMatchException {
 		UserDetails userDetails = null;
 		User user = userDao.findOneByUsername(username);
-		if(!validatePassword(password,user.getPassword())) {
-	        throw new AuthenticationExceptionHandler.UserPasswordMisMatchException("Given password does not match");
-	        
+		if (user == null) {
+			throw new AuthenticationExceptionHandler.UserPasswordMisMatchException("User not found");
 		}
-		if (user != null) {
+		if (!validatePassword(password, user.getPassword())) {
+			throw new AuthenticationExceptionHandler.UserPasswordMisMatchException("Given password does not match");
+
+		} else {
 			logger.info("user data", user);
 			userDetails = new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),
 					new ArrayDeque<>());
-		} else {
-			throw new AuthenticationExceptionHandler.UserPasswordMisMatchException("User not found");
 		}
 		return userDetails;
 	}

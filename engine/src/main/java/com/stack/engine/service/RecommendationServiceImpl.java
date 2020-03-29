@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.stack.engine.dao.EngineDao;
 import com.stack.engine.model.NewsArticleDto;
-import com.stack.engine.model.NewsArticleRto;
 
 @Service
 public class RecommendationServiceImpl implements RecommendationService{
